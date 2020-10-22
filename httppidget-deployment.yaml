@@ -1,0 +1,24 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  labels:
+    app: httppidget
+  name: httppidget
+spec:
+  selector:
+    matchLabels:
+      app: httppidget
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: httppidget
+    spec:
+      containers:
+        - image: httppidget
+          name: httppidget
+          imagePullPolicy: Never
+          ports:
+          - containerPort: 4567
+
+
